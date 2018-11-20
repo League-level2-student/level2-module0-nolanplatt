@@ -1,22 +1,147 @@
 package arrays;
 
-public class _01_RobotRace {
-	//1. make a main method
+import java.util.Random;
 
-	//2. create an array of 5 robots.
+import org.jointheleague.graphical.robot.Robot;
 
+public class _01_RobotRace {	
+	boolean top = false;
+
+
+	public static void main(String[] args) {
+
+		_01_RobotRace robotRace = new _01_RobotRace();
+	//	robotRace.fiveRobots(); 
+		robotRace.twentyRobots();
+	}
+
+	
+	void fiveRobots() {
+		//2. create an array of 5 robots.
+				Robot[] fiveRobots = new Robot[5];
+
+
+				
+				
+			//3. use a for loop to initialize the robots.
+				
+				for (int i = 0; i < fiveRobots.length; i++) {
+					fiveRobots[i] = new Robot();
+				}
+
+				//4. make each robot start at the bottom of the screen, side by side, facing up
+				for (int i = 0; i < fiveRobots.length; i++) {
+					fiveRobots[i].setSpeed(20);
+					fiveRobots[i].moveTo(i * 95, 540);
+				}
+				
+				/*
+				while(!top) {
+					for (int i = 0; i < fiveRobots.length; i++) {
+						if(fiveRobots[i].getY() < 0) {
+							top = true;
+						}
+					}
+					}
+					*/
+		while(fiveRobots[0].getY() > 0) {	
+			for (int i = 0; i < fiveRobots.length; i++) {	
+			Random random = new Random();
+			int randomResult = random.nextInt(50);
+			//System.out.println(i + " moving: " + randomResult + " y: "+ fiveRobots[i].getY());
+			fiveRobots[i].move(randomResult);
+			
+			
+		}
+			
+			}
+				while(!top) {
+					for (int i = 0; i < fiveRobots.length; i++) {
+						if(fiveRobots[i].getY() < 0) {
+							top = true;
+							System.out.println("Robot "+i + " won!");
+							break;
+							
+						}
+					}
+				}
+		
+
+			}
+			
+			/*
+			if(0 > fiveRobots[0].getY()) {
+				System.out.println("Robot 0 won!");
+				break;
+			}
+			else if(0 > fiveRobots[1].getY()) {
+				System.out.println("Robot 1 won!");
+				break;
+			}
+			else if(0 > fiveRobots[2].getY()) {
+				System.out.println("Robot 2 won!");
+				break;
+		 	}
+			else if(0 > fiveRobots[3].getY()) {
+				System.out.println("Robot 3 won!");
+				break;
+			}
+			else if(0 > fiveRobots[4].getY()) {
+				System.out.println("Robot 4 won!");
+				break;
+			}
+			*/
+	
+	
+	
+	void twentyRobots() {
+		//2. create an array of 5 robots.
+		Robot[] twentyRobots = new Robot[20];
+
+
+		
+		
 	//3. use a for loop to initialize the robots.
+		
+		for (int i = 0; i < twentyRobots.length; i++) {
+			twentyRobots[i] = new Robot();
+		}
 
 		//4. make each robot start at the bottom of the screen, side by side, facing up
-
-	//5. use another for loop to iterate through the array and make each robot move 
-	//   a random amount less than 50.
-
-	//6. use a while loop to repeat step 5 until a robot has reached the top of the screen.
-
-	//7. declare that robot the winner and throw it a party!
-
-	//8. try different races with different amounts of robots.
-
-	//9. make the robots race around a circular track.
+		for (int i = 0; i < twentyRobots.length; i++) {
+			twentyRobots[i].setSpeed(20);
+			twentyRobots[i].moveTo(i * 50, 540);
+		}
+		
+		/*
+		while(!top) {
+			for (int i = 0; i < fiveRobots.length; i++) {
+				if(fiveRobots[i].getY() < 0) {
+					top = true;
+				}
+			}
+			}
+			*/
+while(twentyRobots[0].getY() > 0) {	
+	for (int i = 0; i < twentyRobots.length; i++) {	
+	Random random = new Random();
+	int randomResult = random.nextInt(50);
+	//System.out.println(i + " moving: " + randomResult + " y: "+ fiveRobots[i].getY());
+	twentyRobots[i].move(randomResult);
+	
+	
+}
+	
+	}
+		while(!top) {
+			for (int i = 0; i < twentyRobots.length; i++) {
+				if(twentyRobots[i].getY() < 0) {
+					top = true;
+					System.out.println("Robot "+i + " won!");
+					break;
+					
+				}
+			}
+		}
+	}
 }
